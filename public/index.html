@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#edeeef">
+    <meta name="description" content="Pure Glow Care - Premium Hair Products. Nourish. Restore. Glow.">
+    <meta name="keywords" content="hair care, natural products, premium hair, pure glow care">
+    <meta name="author" content="Pure Glow Care">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Pure Glow Care">
+    <meta property="og:description" content="Premium hair care products made with nature, made for you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pureglowcare.com">
+    <meta property="og:image" content="/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pure Glow Care">
+    <meta name="twitter:description" content="Premium hair care products made with nature, made for you.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    
+    <title>Pure Glow Care - Premium Hair Care Products</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- You can add optional loading indicator while React loads -->
+    <script>
+        // Optional: Show loading indicator while React mounts
+        const root = document.getElementById('root');
+        if (root && !root.hasChildNodes()) {
+            const loader = document.createElement('div');
+            loader.style.cssText = `
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 1.2rem;
+                color: #4a5568;
+                background: #edeeef;
+            `;
+            loader.innerHTML = '<div>Loading Pure Glow Care...</div>';
+            root.appendChild(loader);
+        }
+    </script>
+</body>
+</html>

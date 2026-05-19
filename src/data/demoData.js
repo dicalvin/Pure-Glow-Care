@@ -1,0 +1,52 @@
+export const DEMO_PRODUCTS = [
+  {
+    id: 'demo-1',
+    name: 'Silk Renewal Oil',
+    tagline: 'Lightweight shine for every texture',
+    description: 'A nourishing oil blend that seals moisture and adds luminous shine without weighing hair down.',
+    price: 34999,
+    currency: 'UGX',
+    purpose: 'Deep nourishment for dry, brittle hair',
+    how_to_use: 'Apply 2–3 drops to damp or dry ends. Massage gently. Use daily or as needed.',
+    image_url: null,
+    featured: true,
+    in_stock: true,
+    sort_order: 1,
+  },
+  {
+    id: 'demo-2',
+    name: 'Glow Hydrating Shampoo',
+    tagline: 'Gentle cleanse, lasting moisture',
+    description: 'Sulphate-free formula that cleanses while preserving your hair natural oils.',
+    price: 24999,
+    currency: 'UGX',
+    purpose: 'Gentle cleanse that restores moisture without stripping',
+    how_to_use: 'Wet hair, massage into scalp and lengths. Rinse thoroughly.',
+    image_url: null,
+    featured: true,
+    in_stock: true,
+    sort_order: 2,
+  },
+];
+
+export const DEMO_TESTIMONIALS = [
+  {
+    id: 'demo-t1',
+    author_name: 'Amara K.',
+    author_location: 'Kampala',
+    content: 'My curls have never felt this soft. The oil is lightweight but incredibly nourishing.',
+    rating: 5,
+    approved: true,
+    media_url: null,
+    products: { name: 'Silk Renewal Oil' },
+  },
+  {
+    id: 'demo-t2',
+    author_name: 'Jordan M.',
+    content: 'Finally a shampoo that does not strip my scalp. My hair looks shinier after two weeks.',
+    rating: 5,
+    approved: true,
+    media_url: null,
+    products: { name: 'Glow Hydrating Shampoo' },
+  },
+];
