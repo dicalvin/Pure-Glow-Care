@@ -20,6 +20,9 @@ const DEFAULT_SETTINGS = {
   hero_subheadline:
     'Discover our handcrafted hair care collection — made with nature, made for you.',
   shipping_note: 'Free delivery on orders above UGX 50,000',
+  logo_url: '',
+  snapchat_username: '',
+  snapchat_url: '',
 };
 
 export function SiteProvider({ children }) {

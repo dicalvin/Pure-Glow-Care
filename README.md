@@ -12,6 +12,19 @@ npm run dev
 
 Open http://localhost:5173
 
+## Deploy (Netlify or Vercel)
+
+1. Push the repo to GitHub/GitLab.
+2. Set build command: `npm run build`, publish directory: `dist`.
+3. Add environment variables in the host dashboard:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+4. Deploy. SPA routing is configured via `netlify.toml`, `vercel.json`, and `public/_redirects`.
+
+**Netlify:** connect repo → Build settings auto-detect from `netlify.toml` → add env vars → Deploy.
+
+**Vercel:** import project → Framework Preset: Vite → add env vars → Deploy.
+
 ## Admin access
 
 - URL: `/admin`

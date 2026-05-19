@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,9 +38,7 @@ export default function Navbar() {
       >
         <div className="container navbar__inner">
           <Link to="/" className="navbar__logo">
-            <span className="navbar__logo-icon">
-              <Sparkles size={16} color="white" />
-            </span>
+            <BrandLogo size={36} />
             <span className="navbar__logo-text">{settings.business_name}</span>
           </Link>
 

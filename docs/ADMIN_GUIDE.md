@@ -19,12 +19,16 @@ If login fails with a database message, ask your technical contact to confirm yo
 
 Update content shown across the public site:
 
+- **Site logo** — upload an image; it appears in the header and footer (replaces the default icon).
 - Business name, tagline, about text
-- Phone, email, Instagram, WhatsApp
+- Phone, email, Instagram
+- **WhatsApp number** — shown in Get in Touch; visitors tap it to open a WhatsApp chat.
+- **Snapchat username** — shown as @username only; visitors tap to open your profile.
+- **Snapchat profile URL** — full link used behind the scenes (not shown on the public site). Leave blank to auto-link from the username.
 - Homepage hero headline and subheadline
 - Shipping note (e.g. free delivery threshold)
 
-Click **Save settings** after editing. Changes appear on the live site immediately.
+Click **Save settings** after editing. Logo uploads save immediately; other fields save when you click **Save settings**.
 
 ### Products
 

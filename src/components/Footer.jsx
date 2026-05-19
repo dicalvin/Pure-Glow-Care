@@ -1,26 +1,76 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Instagram, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Instagram, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
+import BrandLogo from './BrandLogo';
+import SnapchatIcon from './icons/SnapchatIcon';
+import {
+  getWhatsAppHref,
+  formatWhatsAppDisplay,
+  getSnapchatHref,
+  getSnapchatLabel,
+} from '../lib/contacts';
 
 export default function Footer() {
   const { settings } = useSite();
   const year = new Date().getFullYear();
 
-  const contactItems = [
-    { icon: Phone, text: settings.phone, href: `tel:${settings.phone}` },
-    { icon: Mail, text: settings.email, href: `mailto:${settings.email}` },
-    {
-      icon: MessageCircle,
-      text: 'WhatsApp',
-      href: `https://wa.me/${settings.whatsapp?.replace(/\D/g, '')}`,
-    },
-    {
-      icon: Instagram,
-      text: settings.instagram,
-      href: `https://instagram.com/${settings.instagram?.replace('@', '')}`,
-    },
-  ];
+  const contactItems = useMemo(() => {
+    const items = [];
+
+    if (settings.phone) {
+      items.push({
+        key: 'phone',
+        icon: Phone,
+        text: settings.phone,
+        href: `tel:${settings.phone.replace(/\s/g, '')}`,
+      });
+    }
+
+    if (settings.email) {
+      items.push({
+        key: 'email',
+        icon: Mail,
+        text: settings.email,
+        href: `mailto:${settings.email}`,
+      });
+    }
+
+    const waHref = getWhatsAppHref(settings.whatsapp);
+    const waDisplay = formatWhatsAppDisplay(settings.whatsapp);
+    if (waHref && waDisplay) {
+      items.push({
+        key: 'whatsapp',
+        icon: MessageCircle,
+        text: waDisplay,
+        href: waHref,
+        className: 'footer__contact--whatsapp',
+      });
+    }
+
+    if (settings.instagram) {
+      items.push({
+        key: 'instagram',
+        icon: Instagram,
+        text: settings.instagram,
+        href: `https://instagram.com/${settings.instagram.replace('@', '')}`,
+      });
+    }
+
+    const snapLabel = getSnapchatLabel(settings.snapchat_username);
+    const snapHref = getSnapchatHref(settings);
+    if (snapLabel && snapHref) {
+      items.push({
+        key: 'snapchat',
+        icon: SnapchatIcon,
+        text: snapLabel,
+        href: snapHref,
+        className: 'footer__contact--snapchat',
+      });
+    }
+
+    return items;
+  }, [settings]);
 
   return (
     <footer className="footer">
@@ -29,9 +79,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <div className="footer__brand">
-              <span className="navbar__logo-icon">
-                <Sparkles size={16} color="white" />
-              </span>
+              <BrandLogo size={40} />
               <span className="footer__brand-name">{settings.business_name}</span>
             </div>
             <p className="footer__tagline">
@@ -56,19 +104,31 @@ export default function Footer() {
           <div>
             <h4 className="footer__heading">Get in Touch</h4>
             <div className="footer__contacts">
-              {contactItems.map(({ icon: Icon, text, href }) => (
-                <a key={text} href={href} target="_blank" rel="noopener noreferrer" className="footer__contact">
-                  <Icon size={15} />
-                  <span>{text}</span>
-                </a>
-              ))}
+              {contactItems.length === 0 ? (
+                <p className="footer__contact-empty">Contact details coming soon.</p>
+              ) : (
+                contactItems.map(({ key, icon: Icon, text, href, className = '' }) => (
+                  <a
+                    key={key}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`footer__contact ${className}`}
+                  >
+                    <Icon size={15} />
+                    <span>{text}</span>
+                  </a>
+                ))
+              )}
             </div>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© {year} {settings.business_name}. All rights reserved.</p>
-          <p>Made with love for beautiful hair</p>
+          <p>
+            © {year} {settings.business_name}. All rights reserved.
+          </p>
+          <p>Powered by CDR Technologies Ltd</p>
         </div>
       </div>
     </footer>

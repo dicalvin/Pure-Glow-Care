@@ -205,6 +205,28 @@ export default function Admin() {
             }}
           >
             <h3>Business &amp; contact</h3>
+
+            <MediaUpload
+              label="Site logo"
+              accept="image/*"
+              currentUrl={settingsForm.logo_url}
+              hint="Shown in the navigation bar and footer. Square images work best."
+              onUpload={async (file) => {
+                const { url, error } = await uploadMedia(file, 'brand');
+                if (error) {
+                  toast.error(error.message);
+                  return;
+                }
+                setSettingsForm((s) => ({ ...s, logo_url: url }));
+                await updateSetting('logo_url', url);
+                toast.success('Logo uploaded');
+              }}
+              onClear={async () => {
+                setSettingsForm((s) => ({ ...s, logo_url: '' }));
+                await updateSetting('logo_url', '');
+              }}
+            />
+
             {[
               'business_name',
               'tagline',
@@ -213,12 +235,19 @@ export default function Admin() {
               'email',
               'instagram',
               'whatsapp',
+              'snapchat_username',
               'hero_headline',
               'hero_subheadline',
               'shipping_note',
             ].map((key) => (
               <div key={key} className="form-group">
-                <label className="label">{key.replace(/_/g, ' ')}</label>
+                <label className="label">
+                  {key === 'whatsapp'
+                    ? 'WhatsApp number'
+                    : key === 'snapchat_username'
+                      ? 'Snapchat username (shown on site)'
+                      : key.replace(/_/g, ' ')}
+                </label>
                 {key === 'about' ? (
                   <textarea
                     className="textarea"
@@ -230,10 +259,36 @@ export default function Admin() {
                     className="input"
                     value={settingsForm[key] || ''}
                     onChange={(e) => setSettingsForm((s) => ({ ...s, [key]: e.target.value }))}
+                    placeholder={
+                      key === 'whatsapp'
+                        ? '+256 700 000000'
+                        : key === 'snapchat_username'
+                          ? 'yourname'
+                          : undefined
+                    }
                   />
+                )}
+                {key === 'whatsapp' && (
+                  <p className="admin-field-hint">Visitors tap this number to open WhatsApp.</p>
+                )}
+                {key === 'snapchat_username' && (
+                  <p className="admin-field-hint">Only @username is shown on the site.</p>
                 )}
               </div>
             ))}
+
+            <div className="form-group">
+              <label className="label">Snapchat profile URL (hidden from visitors)</label>
+              <input
+                className="input"
+                value={settingsForm.snapchat_url || ''}
+                onChange={(e) => setSettingsForm((s) => ({ ...s, snapchat_url: e.target.value }))}
+                placeholder="https://www.snapchat.com/add/yourname"
+              />
+              <p className="admin-field-hint">
+                Used when visitors click your Snapchat username. Leave blank to auto-build from username.
+              </p>
+            </div>
             <button type="submit" className="btn btn-accent" disabled={saving}>
               {saving ? 'Saving…' : 'Save settings'}
             </button>
