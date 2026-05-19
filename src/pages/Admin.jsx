@@ -111,7 +111,7 @@ export default function Admin() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1>Pure Glow Admin</h1>
+          <h3>Admin</h3>
           <p className="text-muted" style={{ marginBottom: 24 }}>
             Sign in with your admin username to manage the store.
           </p>
