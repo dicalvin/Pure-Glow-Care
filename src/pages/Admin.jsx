@@ -134,7 +134,7 @@ export default function Admin() {
                 className="input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="preciousK20 or calvinD"
+                placeholder="admin username"
                 autoComplete="username"
                 required
               />
