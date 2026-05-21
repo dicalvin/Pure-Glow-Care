@@ -12,7 +12,7 @@ export default function About() {
 
   const pillars = [
     { icon: Crown, title: 'Premium wigs', text: 'Lace fronts, full units, and bundles — quality you can see and feel.' },
-    { icon: Heart, title: 'BY J&K', text: 'Curated by Jenny & Calvin with an eye for style, fit, and fierce confidence.' },
+    { icon: Heart, title: 'BY J&K', text: 'Curated by Jenny with an eye for style, fit, and fierce confidence.' },
     { icon: Sparkles, title: 'Slay every day', text: 'From natural everyday looks to full glam — we have your vibe covered.' },
   ];
 

@@ -8,8 +8,8 @@ const SiteContext = createContext();
 const MEDIA_BUCKET = 'pure-glow-media';
 
 const DEFAULT_SETTINGS = {
-  business_name: 'Wigged up',
-  business_subtitle: 'BY J&K',
+  business_name: 'Wigged Up',
+  business_subtitle: 'By J&K',
   tagline: 'Slay. Switch. Wigged up.',
   about:
     'Wigged up BY J&K is your destination for premium wigs — bold styles, natural looks, and confidence in every strand. From everyday elegance to statement glam, we help you find your perfect fit.',
@@ -20,7 +20,7 @@ const DEFAULT_SETTINGS = {
   hero_headline: 'Get Wigged Up',
   hero_subheadline:
     'Premium wigs curated by J&K — lace fronts, bundles, and full glam units ready to transform your look.',
-  shipping_note: 'Free delivery on orders above UGX 150,000',
+  shipping_note: 'Free delivery on orders above UGX 1,000,000',
   logo_url: '',
   snapchat_username: '',
   snapchat_url: '',
