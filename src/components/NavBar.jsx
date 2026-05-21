@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import BrandLogo from './BrandLogo';
+import BrandMark from './BrandMark';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,8 +39,8 @@ export default function Navbar() {
       >
         <div className="container navbar__inner">
           <Link to="/" className="navbar__logo">
-            <BrandLogo size={36} />
-            <span className="navbar__logo-text">{settings.business_name}</span>
+            <BrandLogo size={40} />
+            <BrandMark stacked />
           </Link>
 
           <div className="navbar__links hide-mobile">

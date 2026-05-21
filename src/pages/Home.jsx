@@ -1,12 +1,13 @@
 import React, { useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Star, Leaf, Droplets, Shield, Sparkles } from 'lucide-react';
+import { ArrowRight, Star, Crown, Sparkles, Heart, Scissors } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import AnimatedBackground, { FloatingOrbs } from '../components/AnimatedBackground';
 import ProductCard from '../components/ProductCard';
 import TestimonialCard from '../components/TestimonialCard';
 import PictorialTestimonial from '../components/PictorialTestimonial';
+import LoadingScreen from '../components/LoadingScreen';
 import { hasPictorialMedia } from '../lib/format';
 
 const fadeUp = {
@@ -42,19 +43,14 @@ export default function Home() {
   );
 
   const values = [
-    { icon: Leaf, title: 'Natural Ingredients', desc: 'Sourced from nature, free from harsh chemicals and toxins.' },
-    { icon: Droplets, title: 'Deep Nourishment', desc: 'Formulas that penetrate deep for lasting moisture and shine.' },
-    { icon: Shield, title: 'Dermatologist Tested', desc: 'Safe for all hair types and sensitive scalps.' },
-    { icon: Sparkles, title: 'Visible Results', desc: "Transformative results you'll see and feel from day one." },
+    { icon: Crown, title: 'Premium Quality', desc: 'Hand-picked units and bundles — luxury fibers, flawless construction.' },
+    { icon: Scissors, title: 'Styled to Slay', desc: 'Ready-to-wear looks and customizable lace for your perfect fit.' },
+    { icon: Heart, title: 'Confidence First', desc: 'Every piece chosen to help you feel bold, beautiful, and wigged up.' },
+    { icon: Sparkles, title: 'J&K Curated', desc: 'Exclusive selections from Jenny & Calvin — taste you can trust.' },
   ];
 
   if (loading) {
-    return (
-      <div className="loading-screen">
-        <Sparkles size={32} className="loading-screen__icon" />
-        <p>Loading {settings.business_name}…</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (
@@ -73,7 +69,7 @@ export default function Home() {
             className="hero__eyebrow"
           >
             <span className="hero__eyebrow-line" />
-            <span>{settings.tagline}</span>
+            <span>{settings.business_subtitle || 'BY J&K'} · {settings.tagline}</span>
           </motion.div>
 
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" className="hero__title">
@@ -86,7 +82,7 @@ export default function Home() {
 
           <motion.div variants={fadeUp} custom={2} initial="hidden" animate="visible" className="hero__cta">
             <Link to="/products" className="btn btn-primary">
-              Shop Collection <ArrowRight size={16} />
+              Shop Wigs <ArrowRight size={16} />
             </Link>
             <Link to="/about" className="btn btn-outline">
               Our Story
@@ -96,11 +92,11 @@ export default function Home() {
           <motion.div variants={fadeUp} custom={3} initial="hidden" animate="visible" className="hero__proof">
             <div className="hero__stars">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} fill="var(--gold)" color="var(--gold)" />
+                <Star key={i} size={14} fill="var(--hot-pink)" color="var(--hot-pink)" />
               ))}
             </div>
             <span>
-              {testimonials.length > 0 ? `${testimonials.length}+ happy customers` : 'Loved by many'}
+              {testimonials.length > 0 ? `${testimonials.length}+ slayed looks` : 'Loved by our clients'}
             </span>
             <span className="hero__proof-divider" />
             <span>{settings.shipping_note}</span>
@@ -134,7 +130,7 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <div className="divider divider-center" />
               <h2>
-                Why <em>Pure Glow</em>?
+                Why <em>Wigged up</em>?
               </h2>
             </motion.div>
           </motion.div>
@@ -149,7 +145,7 @@ export default function Home() {
             {values.map((v, i) => (
               <motion.div key={v.title} variants={fadeUp} custom={i} className={`value-card value-card--${i % 2}`}>
                 <div className="value-card__icon">
-                  <v.icon size={22} color="var(--accent-dark)" />
+                  <v.icon size={22} color="var(--hot-pink-dark)" />
                 </div>
                 <h4>{v.title}</h4>
                 <p>{v.desc}</p>
@@ -168,11 +164,11 @@ export default function Home() {
                 <motion.div variants={fadeUp}>
                   <div className="divider" />
                   <h2>
-                    <em>Featured</em> Products
+                    <em>Featured</em> Wigs
                   </h2>
                 </motion.div>
                 <motion.p variants={fadeUp} custom={1}>
-                  Our most beloved formulas, crafted for transformative results.
+                  Our hottest picks — lace fronts, glam units, and everyday slay.
                 </motion.p>
               </motion.div>
               <Link to="/products" className="btn btn-outline">
@@ -197,18 +193,23 @@ export default function Home() {
       )}
 
       {pictorialFeatured.length > 0 && (
-        <section className="section section--secondary">
+        <section className="section section--white">
           <div className="container">
             <div className="section-header section-header--center">
               <div className="divider divider-center" />
               <h2>
-                Real results, <em>real glow</em>
+                Client <em>lookbook</em>
               </h2>
             </div>
             <div className="pictorial-grid pictorial-grid--home">
               {pictorialFeatured.map((t, i) => (
                 <PictorialTestimonial key={t.id} testimonial={t} index={i} />
               ))}
+            </div>
+            <div className="section-cta">
+              <Link to="/testimonials" className="btn btn-outline">
+                See full gallery <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
         </section>
@@ -227,11 +228,11 @@ export default function Home() {
               <motion.div variants={fadeUp}>
                 <div className="divider divider-center divider--gold" />
                 <h2 className="text-cream">
-                  Real Hair, <em>Real Stories</em>
+                  Real Clients, <em>Real Reviews</em>
                 </h2>
               </motion.div>
               <motion.p variants={fadeUp} custom={1} className="text-cream-muted">
-                Hear from our glowing community.
+                The wigged-up family speaks.
               </motion.p>
             </motion.div>
             <div className="testimonials-grid">
@@ -249,7 +250,7 @@ export default function Home() {
             </div>
             <div className="section-cta">
               <Link to="/testimonials" className="btn btn-outline btn-outline--cream">
-                Read All Stories <ArrowRight size={15} />
+                All testimonials <ArrowRight size={15} />
               </Link>
             </div>
           </div>
@@ -261,10 +262,10 @@ export default function Home() {
         <div className="container cta-band__inner">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.h2 variants={fadeUp}>
-              Begin Your <em>Glow Journey</em>
+              Ready to Get <em>Wigged Up</em>?
             </motion.h2>
             <motion.p variants={fadeUp} custom={1}>
-              Your healthiest, most beautiful hair is one step away. Explore our full collection.
+              Your next signature look is waiting. Browse the collection by J&K.
             </motion.p>
             <motion.div variants={fadeUp} custom={2}>
               <Link to="/products" className="btn btn-primary">

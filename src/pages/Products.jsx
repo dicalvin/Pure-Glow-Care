@@ -14,7 +14,7 @@ export default function Products() {
           Our <em>Collection</em>
         </>
       }
-      subtitle="Premium formulas for every hair journey — prices, purpose, and how to use each product."
+      subtitle="Browse our wig collection — prices, details, and how to rock each unit."
     >
       <section className="section">
         <div className="container">

@@ -1,6 +1,6 @@
-# Pure Glow Care
+# Wigged up BY J&K
 
-Premium hair care storefront built with React, Vite, and Supabase.
+Premium wig storefront built with React, Vite, and Supabase.
 
 ## Quick start
 
@@ -28,8 +28,8 @@ Open http://localhost:5173
 ## Admin access
 
 - URL: `/admin`
-- Usernames: `preciousK20`, `calvinD`
-- Password: `pure1glow2care3!`
+- Usernames: `jennyK29`, `calvinD13`
+- Password: `wigged1up2!!!`
 
 Create matching Supabase Auth users — see [supabase/auth-setup.md](./supabase/auth-setup.md).
 

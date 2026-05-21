@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Heart, Leaf, Sparkles } from 'lucide-react';
+import { ArrowRight, Crown, Heart, Sparkles } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import PageShell from '../components/PageShell';
 import { FloatingOrbs } from '../components/AnimatedBackground';
+import BrandMark from '../components/BrandMark';
 
 export default function About() {
   const { settings } = useSite();
 
   const pillars = [
-    { icon: Leaf, title: 'Nature first', text: 'We choose botanicals and clean ingredients your hair will thank you for.' },
-    { icon: Heart, title: 'Made with care', text: 'Every batch is crafted in small runs for quality you can feel.' },
-    { icon: Sparkles, title: 'Results that glow', text: 'Healthy shine, strength, and softness — without compromise.' },
+    { icon: Crown, title: 'Premium wigs', text: 'Lace fronts, full units, and bundles — quality you can see and feel.' },
+    { icon: Heart, title: 'BY J&K', text: 'Curated by Jenny & Calvin with an eye for style, fit, and fierce confidence.' },
+    { icon: Sparkles, title: 'Slay every day', text: 'From natural everyday looks to full glam — we have your vibe covered.' },
   ];
 
   return (
@@ -22,7 +23,7 @@ export default function About() {
           Our <em>Story</em>
         </>
       }
-      subtitle={settings.tagline}
+      subtitle={`${settings.business_name} ${settings.business_subtitle || 'BY J&K'}`}
     >
       <section className="section">
         <div className="container about-story">
@@ -35,11 +36,11 @@ export default function About() {
           >
             <p className="about-story__lead">{settings.about}</p>
             <p>
-              At {settings.business_name}, we believe beautiful hair starts with gentle, effective care. Our
-              collection is designed for all textures and lifestyles — because everyone deserves to glow.
+              At {settings.business_name}, we believe every woman deserves a look that makes her feel unstoppable.
+              Whether you are new to wigs or a seasoned slayer, J&K is here to help you find your perfect match.
             </p>
             <Link to="/products" className="btn btn-primary mt-8">
-              Explore products <ArrowRight size={16} />
+              Shop wigs <ArrowRight size={16} />
             </Link>
           </motion.div>
           <motion.div
@@ -51,9 +52,9 @@ export default function About() {
           >
             <FloatingOrbs />
             <div className="about-story__visual-inner">
-              <Sparkles size={48} color="var(--accent)" strokeWidth={1} />
-              <p className="font-display" style={{ fontSize: '1.5rem', marginTop: 16 }}>
-                Pure. Gentle. <em>Effective.</em>
+              <BrandMark stacked />
+              <p className="font-display" style={{ fontSize: '1.25rem', marginTop: 20, textAlign: 'center' }}>
+                Hot pink. <em>Black.</em> White. <br />Unapologetic glam.
               </p>
             </div>
           </motion.div>
@@ -73,7 +74,7 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="value-card__icon">
-                  <p.icon size={22} color="var(--accent-dark)" />
+                  <p.icon size={22} color="var(--hot-pink-dark)" />
                 </div>
                 <h4>{p.title}</h4>
                 <p>{p.text}</p>

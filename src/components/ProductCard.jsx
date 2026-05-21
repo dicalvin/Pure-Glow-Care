@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Droplets, ArrowUpRight } from 'lucide-react';
+import { Crown, ArrowUpRight } from 'lucide-react';
 import { formatPrice } from '../lib/format';
 
 export default function ProductCard({ product }) {
@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
           <img src={product.image_url} alt={product.name} loading="lazy" />
         ) : (
           <div className="img-placeholder product-card__placeholder">
-            <Droplets size={36} strokeWidth={1.2} />
+            <Crown size={36} strokeWidth={1.2} />
           </div>
         )}
         <motion.div

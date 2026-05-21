@@ -8,18 +8,19 @@ const SiteContext = createContext();
 const MEDIA_BUCKET = 'pure-glow-media';
 
 const DEFAULT_SETTINGS = {
-  business_name: 'Pure Glow Care',
-  tagline: 'Nourish. Restore. Glow.',
+  business_name: 'Wigged up',
+  business_subtitle: 'BY J&K',
+  tagline: 'Slay. Switch. Wigged up.',
   about:
-    "We craft premium hair care products using the finest natural ingredients, designed to restore your hair's natural beauty and vitality.",
+    'Wigged up BY J&K is your destination for premium wigs — bold styles, natural looks, and confidence in every strand. From everyday elegance to statement glam, we help you find your perfect fit.',
   phone: '+256 700 000000',
-  email: 'hello@pureglowcare.com',
-  instagram: '@pureglowcare',
+  email: 'hello@wiggedup.com',
+  instagram: '@wiggedup',
   whatsapp: '+256700000000',
-  hero_headline: 'Your Hair Deserves Pure Love',
+  hero_headline: 'Get Wigged Up',
   hero_subheadline:
-    'Discover our handcrafted hair care collection — made with nature, made for you.',
-  shipping_note: 'Free delivery on orders above UGX 50,000',
+    'Premium wigs curated by J&K — lace fronts, bundles, and full glam units ready to transform your look.',
+  shipping_note: 'Free delivery on orders above UGX 150,000',
   logo_url: '',
   snapchat_username: '',
   snapchat_url: '',
@@ -327,7 +328,7 @@ export function SiteProvider({ children }) {
 }
 
 function ADMIN_EMAIL_HINT(username) {
-  return `"${username}@admin.pureglowcare.com"`;
+  return `"${getAdminEmail(username)}"`;
 }
 
 export const useSite = () => useContext(SiteContext);

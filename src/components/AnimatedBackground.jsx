@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-/** Soft drifting blobs using brand colors #edeeef and #f7f6f2 */
+/** Soft drifting blobs — hot pink, black, white */
 export default function AnimatedBackground({ intensity = 1 }) {
   const canvasRef = useRef(null);
 
@@ -14,12 +14,11 @@ export default function AnimatedBackground({ intensity = 1 }) {
     const particles = [];
 
     const colors = [
-      'rgba(237, 238, 239, 0.55)',
-      'rgba(247, 246, 242, 0.65)',
-      'rgba(196, 168, 130, 0.12)',
-      'rgba(0, 100, 0, 0.08)',
-      'rgba(232, 207, 196, 0.14)',
-      'rgba(240, 228, 204, 0.18)',
+      'rgba(255, 20, 147, 0.10)',
+      'rgba(255, 228, 240, 0.55)',
+      'rgba(255, 255, 255, 0.45)',
+      'rgba(0, 0, 0, 0.04)',
+      'rgba(255, 20, 147, 0.06)',
     ];
 
     const resize = () => {
@@ -98,8 +97,8 @@ export function FloatingOrbs() {
             animationDelay: `${o.delay}s`,
             background:
               i % 2 === 0
-                ? 'radial-gradient(circle, rgba(237,238,239,0.5) 0%, transparent 70%)'
-                : 'radial-gradient(circle, rgba(247,246,242,0.6) 0%, transparent 70%)',
+                ? 'radial-gradient(circle, rgba(255,20,147,0.2) 0%, transparent 70%)'
+                : 'radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%)',
           }}
         />
       ))}

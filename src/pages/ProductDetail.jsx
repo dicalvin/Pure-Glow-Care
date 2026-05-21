@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Droplets } from 'lucide-react';
+import { ArrowLeft, Crown } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import AnimatedBackground from '../components/AnimatedBackground';
 import { formatPrice } from '../lib/format';
@@ -58,7 +58,7 @@ export default function ProductDetail() {
               <img src={product.image_url} alt={product.name} />
             ) : (
               <div className="img-placeholder product-detail__placeholder">
-                <Droplets size={48} strokeWidth={1.2} />
+                <Crown size={48} strokeWidth={1.2} />
               </div>
             )}
             {product.video_url && (

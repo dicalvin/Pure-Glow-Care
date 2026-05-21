@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import BrandLogo from './BrandLogo';
+import BrandMark from './BrandMark';
 import SnapchatIcon from './icons/SnapchatIcon';
 import {
   getWhatsAppHref,
@@ -79,8 +80,8 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <div className="footer__brand">
-              <BrandLogo size={40} />
-              <span className="footer__brand-name">{settings.business_name}</span>
+              <BrandLogo size={44} />
+              <BrandMark stacked light />
             </div>
             <p className="footer__tagline">
               {settings.tagline} — Handcrafted with love and nature&apos;s finest ingredients.

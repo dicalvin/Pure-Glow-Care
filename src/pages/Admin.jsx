@@ -111,7 +111,7 @@ export default function Admin() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h3>Admin</h3>
+          <h3>Wigged up Admin</h3>
           <p className="text-muted" style={{ marginBottom: 24 }}>
             Sign in with your admin username to manage the store.
           </p>
@@ -134,7 +134,7 @@ export default function Admin() {
                 className="input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="admin username"
+                placeholder="jennyK29 or calvinD13"
                 autoComplete="username"
                 required
               />
@@ -229,6 +229,7 @@ export default function Admin() {
 
             {[
               'business_name',
+              'business_subtitle',
               'tagline',
               'about',
               'phone',
@@ -566,7 +567,7 @@ export default function Admin() {
                 currentUrl={testimonialForm.media_url}
                 onUpload={handleTestimonialMediaUpload}
                 onClear={() => setTestimonialForm((f) => ({ ...f, media_url: '', media_type: 'image' }))}
-                hint="Upload shows in Glow Gallery on the testimonials page"
+                hint="Upload shows in the Lookbook (pictorial) section on testimonials"
               />
               <label className="admin__checkbox">
                 <input

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import WigIcon from './icons/WigIcon';
 import { useSite } from '../contexts/SiteContext';
 
 export default function BrandLogo({ size = 36, className = '' }) {
@@ -23,7 +23,7 @@ export default function BrandLogo({ size = 36, className = '' }) {
       style={{ width: size, height: size }}
       aria-hidden
     >
-      <Sparkles size={Math.round(size * 0.44)} color="white" />
+      <WigIcon size={Math.round(size * 0.65)} />
     </span>
   );
 }

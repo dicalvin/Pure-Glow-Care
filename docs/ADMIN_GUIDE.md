@@ -1,14 +1,14 @@
 # Pure Glow Care — Admin Guide
 
-This guide is for **preciousK20** and **calvinD**, the site administrators who manage products, testimonials, and business information.
+This guide is for **jennyK29** and **calvinD13**, the site administrators who manage products, testimonials, and business information.
 
 ## Signing in
 
 1. Open the website and go to **`/admin`** (or tap **Admin** in the navigation when already signed in).
 2. Enter your **username** (not email):
-   - `preciousK20`
-   - `calvinD`
-3. Enter the shared admin **password**: `pure1glow2care3!`
+   - `jennyK29`
+   - `calvinD13`
+3. Enter the shared admin **password**: `wigged1up2!!!`
 4. Click **Sign in**.
 
 If login fails with a database message, ask your technical contact to confirm your Supabase Auth account exists (see `supabase/auth-setup.md`).
@@ -19,8 +19,9 @@ If login fails with a database message, ask your technical contact to confirm yo
 
 Update content shown across the public site:
 
-- **Site logo** — upload an image; it appears in the header and footer (replaces the default icon).
-- Business name, tagline, about text
+- **Site logo** — upload an image; it appears in the header and footer (replaces the default wig icon).
+- Business name and **business subtitle** (e.g. `BY J&K` — shown under the name in smaller pink text)
+- Tagline, about text
 - Phone, email, Instagram
 - **WhatsApp number** — shown in Get in Touch; visitors tap it to open a WhatsApp chat.
 - **Snapchat username** — shown as @username only; visitors tap to open your profile.
