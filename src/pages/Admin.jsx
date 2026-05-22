@@ -111,7 +111,7 @@ export default function Admin() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h3>Wigged up Admin</h3>
+          <h3></h3>
           <p className="text-muted" style={{ marginBottom: 24 }}>
             Sign in with your admin username to manage the store.
           </p>
@@ -134,7 +134,7 @@ export default function Admin() {
                 className="input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="jennyK29 or calvinD13"
+                placeholder="admin username"
                 autoComplete="username"
                 required
               />
